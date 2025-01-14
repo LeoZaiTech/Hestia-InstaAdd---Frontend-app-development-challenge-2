@@ -20,6 +20,17 @@ export class SubmitProductInfoComponent implements OnInit {
   productForm!: FormGroup;
   descriptionLength = 0;
 
+  showLineBuyDropdown = false;
+  selectedLineBuy: any = null;
+
+  recommendedLineBuys = [
+    { name: 'Plumbing Fixtures (PL001)', rating: 3 },
+    { name: 'HVAC Components (HV001)', rating: 2 },
+    { name: 'Industrial Valves (IV001)', rating: 1 }
+  ];
+
+  defaultLineBuy = { name: 'Default Line Buy (LB001)' };
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -33,7 +44,7 @@ export class SubmitProductInfoComponent implements OnInit {
       description: ['', [Validators.required, Validators.maxLength(35)]],
       listPrice: [null, [Validators.required, Validators.min(0)]],
       uom: ['', Validators.required],
-      lineBuy: ['Default Line Buy (LB001)', { disabled: true }],
+      lineBuy: [this.defaultLineBuy.name, { disabled: true }],
       discountGroup: ['No Discount (DG004)', { disabled: true }],
       isHazardous: [false],
     });
@@ -53,5 +64,15 @@ export class SubmitProductInfoComponent implements OnInit {
       // Handle form submission
       console.log(this.productForm.value);
     }
+  }
+
+  toggleLineBuyDropdown() {
+    this.showLineBuyDropdown = !this.showLineBuyDropdown;
+  }
+
+  selectLineBuy(lineBuy: any) {
+    this.selectedLineBuy = lineBuy;
+    this.productForm.get('lineBuy')?.setValue(lineBuy.name);
+    this.showLineBuyDropdown = false;
   }
 }
