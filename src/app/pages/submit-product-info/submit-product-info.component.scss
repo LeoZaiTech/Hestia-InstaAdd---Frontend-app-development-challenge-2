@@ -71,13 +71,26 @@ $background-light: #F0F3F5;
       width: 239px;
 
       .steps {
-        @include flex-column;
-        gap: 3px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 32px;
 
         .step {
           display: flex;
           align-items: center;
           gap: 12px;
+          position: relative;
+
+          &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            width: 0;
+            height: 24px;
+            border-left: 2px dashed #AAB2B8;
+          }
 
           .icon {
             @include flex-center;
