@@ -117,24 +117,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Spec Sheet -->
-        <div class="form-field">
-          <label>Spec Sheet</label>
-          <div class="file-upload">
-            <div class="upload-area" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 16V8M9 11L12 8L15 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <div class="upload-text">
-                <span>Drop file here</span>
-                <span class="hint">(PDF file up to 25 MB)</span>
-              </div>
-              <button class="browse-btn" (click)="triggerFileInput()">BROWSE</button>
-              <input #fileInput type="file" (change)="onFileSelected($event)" accept=".pdf" style="display: none;">
-            </div>
-          </div>
-        </div>
       </form>
 
       <!-- Buttons -->
