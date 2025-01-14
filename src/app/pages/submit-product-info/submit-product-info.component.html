@@ -122,7 +122,11 @@
             </div>
             <div class="input-box">
               <i class="search-icon"></i>
-              <input type="text" formControlName="uom" placeholder="Search and select">
+              <select formControlName="uom">
+                <option value="">Search and select</option>
+                <option value="GL">GL (Gigalitre)</option>
+                <option value="LB">LB (Pounds)</option>
+              </select>
               <i class="chevron-icon"></i>
             </div>
           </div>
