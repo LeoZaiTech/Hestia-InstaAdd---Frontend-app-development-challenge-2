@@ -121,15 +121,21 @@
 
       <!-- Buttons -->
       <div class="buttons">
-        <button class="btn-secondary" (click)="onCancel()">CANCEL</button>
-        <div class="btn-group">
-          <button class="btn-outline" (click)="onBack()">
-            <i class="back-icon"></i>
-            <span>BACK</span>
+        <button class="cancel" (click)="onCancel()">CANCEL</button>
+        <div class="action-buttons">
+          <button class="back" (click)="onBack()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15.8337 10H4.16699" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.0003 15.8334L4.16699 10L10.0003 4.16669" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            BACK
           </button>
-          <button class="btn-primary" (click)="onNext()">
-            <span>PREVIEW</span>
-            <i class="next-icon"></i>
+          <button class="preview" (click)="onNext()">
+            PREVIEW
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4.16699 10H15.8337" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 4.16669L15.8333 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
         </div>
       </div>

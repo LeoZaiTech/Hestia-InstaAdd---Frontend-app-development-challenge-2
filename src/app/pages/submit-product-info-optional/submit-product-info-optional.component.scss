@@ -292,45 +292,66 @@ $background-light: #F0F3F5;
         align-items: center;
         margin-top: auto;
 
-        .back {
+        .cancel {
+          padding: 14px 24px;
+          border: 1px solid $primary-color;
+          border-radius: 4px;
+          background: $white;
           font-family: 'Proxima Nova';
           font-weight: 600;
           font-size: 16px;
-          color: $text-muted;
-          background: none;
-          border: none;
+          color: $primary-color;
           cursor: pointer;
-          padding: 0;
+          min-width: 120px;
+          transition: background-color 0.2s;
 
           &:hover {
-            color: $text-color;
+            background: rgba($primary-color, 0.05);
           }
         }
 
-        .next {
+        .action-buttons {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 14px 24px;
           gap: 8px;
-          min-width: 120px;
-          background: $primary-color;
-          border-radius: 4px;
-          border: none;
-          font-family: 'Proxima Nova';
-          font-weight: 600;
-          font-size: 16px;
-          text-transform: uppercase;
-          color: $white;
-          cursor: pointer;
 
-          &:hover {
-            background: darken($primary-color, 5%);
-          }
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-family: 'Proxima Nova';
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            min-width: 120px;
+            transition: all 0.2s;
 
-          &:disabled {
-            background: lighten($primary-color, 20%);
-            cursor: not-allowed;
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+
+            &.back {
+              border: 1px solid $primary-color;
+              background: $white;
+              color: $primary-color;
+
+              &:hover {
+                background: rgba($primary-color, 0.05);
+              }
+            }
+
+            &.preview {
+              border: none;
+              background: $primary-color;
+              color: $white;
+
+              &:hover {
+                background: darken($primary-color, 5%);
+              }
+            }
           }
         }
       }
