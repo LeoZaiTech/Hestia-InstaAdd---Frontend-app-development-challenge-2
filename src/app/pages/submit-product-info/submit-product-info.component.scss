@@ -168,8 +168,10 @@ $background-light: #F0F3F5;
 
         label {
           font-family: 'Proxima Nova';
+          font-style: normal;
           font-weight: 600;
           font-size: 16px;
+          line-height: 18.4px;
           color: #0A2433;
         }
 
@@ -197,14 +199,22 @@ $background-light: #F0F3F5;
         .status {
           display: flex;
           align-items: center;
-          padding: 10px 14px;
-          gap: 10px;
-          background: $background-light;
+          padding: 12px 16px;
+          gap: 8px;
+          background: #F8F9FA;
           border-radius: 4px;
 
           &.success {
-            .check-icon {
-              color: $success-color;
+            svg {
+              color: #00A499;
+            }
+            span {
+              font-family: 'Proxima Nova';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 16.1px;
+              color: #5D678B;
             }
           }
         }
