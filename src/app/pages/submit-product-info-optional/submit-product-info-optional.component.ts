@@ -48,7 +48,7 @@ export class SubmitProductInfoOptionalComponent {
   onNext() {
     // Store optional form data
     localStorage.setItem('optionalFormData', JSON.stringify(this.optionalForm.value));
-    this.router.navigate(['/home/preview']);
+    this.router.navigate(['/home/review']);
   }
 
   onCancel() {

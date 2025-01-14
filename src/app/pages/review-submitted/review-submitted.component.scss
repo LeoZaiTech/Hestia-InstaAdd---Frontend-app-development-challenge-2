@@ -1,0 +1,190 @@
+// Variables
+$primary-color: #1272BC;
+$secondary-color: #00446A;
+$text-color: #212529;
+$text-muted: #4E575F;
+$border-color: #AAB2B8;
+$white: #FFFFFF;
+$background-light: #F8F9FA;
+
+.review-submitted-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+
+  .progress-steps {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      span {
+        font-family: 'Proxima Nova';
+        font-size: 14px;
+        color: $text-color;
+      }
+
+      &.completed {
+        span {
+          color: $text-color;
+        }
+      }
+
+      &.active {
+        span {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-family: 'Proxima Nova';
+    font-size: 32px;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 32px;
+  }
+
+  .info-preview {
+    background: $white;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-family: 'Proxima Nova';
+      font-size: 20px;
+      font-weight: 600;
+      color: $text-color;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-family: 'Proxima Nova';
+      font-size: 14px;
+      color: $text-muted;
+      margin-bottom: 24px;
+    }
+
+    .info-section {
+      margin-bottom: 32px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-family: 'Proxima Nova';
+        font-size: 16px;
+        font-weight: 600;
+        color: $text-color;
+        margin-bottom: 16px;
+      }
+
+      .info-grid {
+        display: grid;
+        gap: 16px;
+
+        .info-row {
+          display: grid;
+          grid-template-columns: 200px 1fr;
+          gap: 24px;
+          padding: 12px;
+          background: $background-light;
+          border-radius: 4px;
+
+          .label {
+            font-family: 'Proxima Nova';
+            font-size: 14px;
+            color: $text-muted;
+          }
+
+          .value {
+            font-family: 'Proxima Nova';
+            font-size: 14px;
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+
+    .cancel {
+      padding: 14px 24px;
+      border: 1px solid $primary-color;
+      border-radius: 4px;
+      background: $white;
+      font-family: 'Proxima Nova';
+      font-weight: 600;
+      font-size: 16px;
+      color: $primary-color;
+      cursor: pointer;
+      min-width: 120px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background: rgba($primary-color, 0.05);
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 4px;
+        font-family: 'Proxima Nova';
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        min-width: 120px;
+        transition: all 0.2s;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        &.back {
+          border: 1px solid $primary-color;
+          background: $white;
+          color: $primary-color;
+
+          &:hover {
+            background: rgba($primary-color, 0.05);
+          }
+        }
+
+        &.submit {
+          border: none;
+          background: $primary-color;
+          color: $white;
+
+          &:hover {
+            background: darken($primary-color, 5%);
+          }
+        }
+      }
+    }
+  }
+}

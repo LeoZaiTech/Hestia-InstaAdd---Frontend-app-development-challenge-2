@@ -1,0 +1,120 @@
+<div class="review-submitted-container">
+  <div class="progress-steps">
+    <div class="step completed">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="12" fill="#00A862"/>
+        <path d="M17.3337 8L10.0003 15.3333L6.66699 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Required</span>
+    </div>
+    <div class="step completed">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="12" fill="#0066B2"/>
+        <path d="M7.33366 12H16.667M16.667 12L12.0003 7.33334M16.667 12L12.0003 16.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Optional</span>
+    </div>
+    <div class="step active">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="11.5" fill="white" stroke="#D9D9D9"/>
+        <path d="M12 15.6667C14.0251 15.6667 15.6667 14.0251 15.6667 12C15.6667 9.97496 14.0251 8.33334 12 8.33334C9.97496 8.33334 8.33334 9.97496 8.33334 12C8.33334 14.0251 9.97496 15.6667 12 15.6667Z" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Preview</span>
+    </div>
+  </div>
+
+  <h1>Submit Product Info</h1>
+
+  <div class="info-preview">
+    <h2>Info Preview</h2>
+    <p>Review all the information before a complete submission.</p>
+
+    <div class="info-section">
+      <h3>Required Info</h3>
+      <div class="info-grid">
+        <div class="info-row">
+          <span class="label">Vendor</span>
+          <span class="value">{{requiredInfo.vendor}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Alt Code</span>
+          <span class="value">{{requiredInfo.altCode}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Product Description</span>
+          <span class="value">{{requiredInfo.productDescription}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">List Price</span>
+          <span class="value">{{requiredInfo.listPrice}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Unit of Measure</span>
+          <span class="value">{{requiredInfo.unitOfMeasure}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Line Buy</span>
+          <span class="value">{{requiredInfo.lineBuy}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Discount Group</span>
+          <span class="value">{{requiredInfo.discountGroup}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Hazardous Material</span>
+          <span class="value">{{requiredInfo.hazardousMaterial}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Safety Data Sheet (SDS)</span>
+          <span class="value">{{requiredInfo.safetyDataSheet}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h3>Optional Info</h3>
+      <div class="info-grid">
+        <div class="info-row">
+          <span class="label">Manufacturer Part Number</span>
+          <span class="value">{{optionalInfo.manufacturerPartNumber}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">UPC</span>
+          <span class="value">{{optionalInfo.upc}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Product Weight</span>
+          <span class="value">{{optionalInfo.productWeight}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Unit of Weight</span>
+          <span class="value">{{optionalInfo.unitOfWeight}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Spec Sheet</span>
+          <span class="value">{{optionalInfo.specSheet}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="cancel" (click)="onCancel()">CANCEL</button>
+    <div class="action-buttons">
+      <button class="back" (click)="onBack()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15.8337 10H4.16699" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.0003 15.8334L4.16699 10L10.0003 4.16669" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        BACK
+      </button>
+      <button class="submit" (click)="onSubmit()">
+        SUBMIT
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4.16699 10H15.8337" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 4.16669L15.8333 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
