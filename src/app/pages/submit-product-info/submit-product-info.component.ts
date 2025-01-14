@@ -31,6 +31,17 @@ export class SubmitProductInfoComponent implements OnInit {
 
   defaultLineBuy = { name: 'Default Line Buy (LB001)' };
 
+  showDiscountGroupDropdown = false;
+  selectedDiscountGroup: any = null;
+
+  recommendedDiscountGroups = [
+    { name: 'Preferred Customer (DG001)', rating: 3 },
+    { name: 'Bulk Order (DG002)', rating: 2 },
+    { name: 'Seasonal Promo (DG003)', rating: 1 }
+  ];
+
+  defaultDiscountGroup = { name: 'No Discount (DG004)' };
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -45,7 +56,7 @@ export class SubmitProductInfoComponent implements OnInit {
       listPrice: [null, [Validators.required, Validators.min(0)]],
       uom: ['', Validators.required],
       lineBuy: [this.defaultLineBuy.name, { disabled: true }],
-      discountGroup: ['No Discount (DG004)', { disabled: true }],
+      discountGroup: [this.defaultDiscountGroup.name, { disabled: true }],
       isHazardous: [false],
     });
 
@@ -74,5 +85,15 @@ export class SubmitProductInfoComponent implements OnInit {
     this.selectedLineBuy = lineBuy;
     this.productForm.get('lineBuy')?.setValue(lineBuy.name);
     this.showLineBuyDropdown = false;
+  }
+
+  toggleDiscountGroupDropdown() {
+    this.showDiscountGroupDropdown = !this.showDiscountGroupDropdown;
+  }
+
+  selectDiscountGroup(discountGroup: any) {
+    this.selectedDiscountGroup = discountGroup;
+    this.productForm.get('discountGroup')?.setValue(discountGroup.name);
+    this.showDiscountGroupDropdown = false;
   }
 }
