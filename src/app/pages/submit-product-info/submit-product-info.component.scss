@@ -158,7 +158,11 @@ $background-light: #F0F3F5;
         .label-group {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 8px;
+
+          svg {
+            cursor: pointer;
+          }
 
           .char-count {
             margin-left: auto;
