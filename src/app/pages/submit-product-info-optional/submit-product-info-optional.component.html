@@ -1,0 +1,117 @@
+<app-sub-header [breadcrumbs]="breadcrumbs"></app-sub-header>
+
+<div class="body">
+  <div class="hero-banner">
+    <h1>Submit Product Info</h1>
+  </div>
+
+  <div class="main-box">
+    <div class="control">
+      <div class="steps">
+        <div class="step completed">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 10L9 12L13 8" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>Required</span>
+        </div>
+        <div class="step active">
+          <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 5V15M5 10H15" stroke="white" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <span>Optional</span>
+        </div>
+        <div class="step">
+          <div class="icon preview"></div>
+          <span>Preview</span>
+        </div>
+      </div>
+
+      <div class="subtitle">
+        <h3>Optional Info</h3>
+        <p>Additional product information that may be helpful.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+      <form [formGroup]="optionalForm">
+        <!-- Manufacturer Part Number -->
+        <div class="form-field">
+          <label>Manufacturer Part Number</label>
+          <div class="input-box">
+            <input type="text" formControlName="manufacturerPartNumber" placeholder="Enter">
+          </div>
+        </div>
+
+        <!-- UPC -->
+        <div class="form-field">
+          <div class="label-group">
+            <label>UPC</label>
+            <span class="char-count">{{ upcLength }} / 12</span>
+          </div>
+          <div class="input-box">
+            <input type="text" formControlName="upc" placeholder="Enter" maxlength="12">
+          </div>
+        </div>
+
+        <!-- Product Weight and Unit -->
+        <div class="double-field">
+          <div class="form-field">
+            <label>Product Weight</label>
+            <div class="input-box">
+              <input type="number" formControlName="productWeight" placeholder="0.00">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Unit of Weight</label>
+            <div class="input-box">
+              <select formControlName="weightUnit">
+                <option value="">Select unit</option>
+                <option value="lb">Pounds (lb)</option>
+                <option value="kg">Kilograms (kg)</option>
+                <option value="oz">Ounces (oz)</option>
+              </select>
+              <i class="chevron-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spec Sheet Upload -->
+        <div class="form-field">
+          <label>Spec Sheet</label>
+          <div class="file-upload">
+            <input type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx">
+            <div class="upload-button">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 16V8M9 11L12 8L15 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Upload File</span>
+            </div>
+            <p class="upload-hint">PDF, DOC up to 10MB</p>
+          </div>
+        </div>
+      </form>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button class="btn-secondary" (click)="onCancel()">CANCEL</button>
+        <div class="btn-group">
+          <button class="btn-outline" (click)="onBack()">
+            <i class="back-icon"></i>
+            <span>BACK</span>
+          </button>
+          <button class="btn-primary" (click)="onNext()">
+            <span>NEXT</span>
+            <i class="next-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

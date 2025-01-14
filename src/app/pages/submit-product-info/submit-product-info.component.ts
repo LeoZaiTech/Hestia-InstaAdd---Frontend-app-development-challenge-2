@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SubHeaderComponent } from 'src/app/components/common/sub-header/sub-header.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-submit-product-info',
@@ -42,7 +43,7 @@ export class SubmitProductInfoComponent implements OnInit {
 
   defaultDiscountGroup = { name: 'No Discount (DG004)' };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.initForm();
@@ -72,8 +73,9 @@ export class SubmitProductInfoComponent implements OnInit {
 
   onNext() {
     if (this.productForm.valid) {
-      // Handle form submission
-      console.log(this.productForm.value);
+      // Store form data and navigate to optional page
+      localStorage.setItem('productFormData', JSON.stringify(this.productForm.value));
+      this.router.navigate(['/home/submit-info-optional']);
     }
   }
 
