@@ -1,0 +1,43 @@
+<div class="label">{{ label() }}</div>
+<div class="input-box" [class.focus]="isFocus">
+  <input
+    [type]="inputType()"
+    [formControl]="inputControl()"
+    placeholder="Enter"
+    [readonly]="isLoading()"
+    (focus)="isFocus = true"
+    (blur)="isFocus = false"
+    (keyup.enter)="eventEnter.emit()"
+  />
+  @if ((isFocus || hasInputText) && !isLoading()) {
+    <app-icon-close-new
+      class="input-suffix-icon"
+      [color]="hasInputText ? 'var(--grey)' : '#dcdddf'"
+      [clickable]="hasInputText"
+      (mousedown)="$event.preventDefault(); clearInputText()"
+    ></app-icon-close-new>
+  }
+  @if (isLoading()) {
+    <app-icon-loading class="input-suffix-icon"></app-icon-loading>
+  }
+
+  @if (!isLoading()) {
+    <ng-content select="[suffix-icon]"></ng-content>
+  }
+</div>
+
+@if (isLoading()) {
+  <div class="checking">{{ checkingText() }}</div>
+}
+
+@if (resultType() === 'correct') {
+  <div class="result">
+    <app-icon-correct></app-icon-correct>
+    {{ correctText() }}
+  </div>
+} @else if (resultType() === 'wrong') {
+  <div class="result">
+    <app-icon-wrong></app-icon-wrong>
+    {{ wrongText() }}
+  </div>
+}

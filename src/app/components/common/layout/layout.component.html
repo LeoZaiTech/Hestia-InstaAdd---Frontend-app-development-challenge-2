@@ -1,0 +1,12 @@
+<!-- header -->
+<app-header></app-header>
+
+<!-- mobile navigation -->
+@if (mainService.mobileMenuOpened$ | async) {
+  <app-mobile-navigation></app-mobile-navigation>
+}
+
+<!-- main container -->
+<div class="main-container">
+  <ng-content> </ng-content>
+</div>

@@ -1,0 +1,14 @@
+<!-- thumbnail -->
+<app-user-thumbnail
+  [firstName]="user?.givenName || ''"
+  [lastName]="user?.familyName || ''"
+></app-user-thumbnail>
+
+<!-- user info -->
+<div class="ldm-user-info">
+  <!-- name -->
+  <div class="ldm-user-name">{{ user?.givenName }} {{ user?.familyName }}</div>
+
+  <!-- role -->
+  <div class="ldm-user-role">User</div>
+</div>

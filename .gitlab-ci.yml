@@ -1,0 +1,52 @@
+stages:
+  - check
+  - test
+  - build
+  - deploy
+
+services:
+  - docker:dind
+
+check:
+  stage: check
+  image: node:22-alpine
+  script:
+    - npm ci
+    - npm run lint
+    - npm run format:check
+  only:
+    - merge_requests
+    - branches
+
+test:
+  stage: test
+  image: zenika/alpine-chrome:with-node
+  script:
+    - npm ci
+    - npm run test:ci
+  only:
+    - merge_requests
+    - branches
+
+build:
+  stage: build
+  image: node:22-alpine
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+  only:
+    - merge_requests
+    - branches
+
+deploy:
+  stage: deploy
+  image: docker:latest
+  before_script: []
+  script:
+    - docker build -t app/hestia-insta-add-frontend .
+    - docker run -d -p 80:80 --rm --name frontend app/hestia-insta-add-frontend
+  only:
+    - main

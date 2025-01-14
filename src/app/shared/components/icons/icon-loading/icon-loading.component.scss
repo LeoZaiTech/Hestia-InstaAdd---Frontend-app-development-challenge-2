@@ -1,0 +1,13 @@
+:host {
+  animation: loading cubic-bezier(0.46, 0.15, 0.62, 0.87) 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}

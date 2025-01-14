@@ -1,0 +1,43 @@
+<!-- navigation container -->
+<div class="ldm-mobile-navigation">
+  <!-- top section -->
+  <div class="ldm-mobile-navigation-top">
+    <!-- header -->
+    <div class="ldm-mobile-navigation-header">
+      <!-- title section -->
+      <div class="ldm-mobile-navigation-title">
+        <!-- sub title -->
+        <h3>Hestia</h3>
+      </div>
+
+      <!-- close -->
+      <app-icon-close
+        (click)="mainService.mobileMenuOpened = false"
+        [clickable]="true"
+      ></app-icon-close>
+    </div>
+
+    <!-- list -->
+    <div class="ldm-mobile-navigation-list">
+      <!-- navigation item -->
+      <a
+        (click)="mainService.mobileMenuOpened = false"
+        [routerLink]="['/home']"
+        class="ldm-mobile-navigation-item active"
+        routerLinkActive="active"
+      >
+        <app-icon-home></app-icon-home>
+        Home
+      </a>
+    </div>
+  </div>
+
+  <!-- bottom -->
+  <div class="ldm-mobile-navigation-bottom">
+    <!-- user info -->
+    <app-user-info [showAll]="true" [user]="appService.user$ | async"></app-user-info>
+
+    <!-- logout -->
+    <app-icon-logout (click)="logout()" [clickable]="true"></app-icon-logout>
+  </div>
+</div>

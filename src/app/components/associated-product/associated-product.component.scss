@@ -1,0 +1,82 @@
+@import 'app/styles/mixins';
+
+.title {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.content {
+  padding: 16px 14px 24px;
+  background: var(--secondary);
+  border-radius: 4px;
+
+  .product-left-box,
+  .product-img {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+  }
+
+  .product-name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--primary-dark);
+  }
+
+  .product-info-box {
+    margin: 24px 0;
+
+    .info-label {
+      flex-shrink: 0;
+      width: 100px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      color: var(--grey);
+    }
+
+    .info-value {
+      margin-left: 65px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      word-break: break-all;
+      color: var(--default);
+
+      @include window768 {
+        margin-left: 35px;
+      }
+    }
+  }
+
+  .copy {
+    margin-left: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    color: var(--blue);
+  }
+
+  .btn-open {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px 6px;
+    width: 225px;
+    height: 27px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--blue);
+    border-radius: 4px;
+  }
+}

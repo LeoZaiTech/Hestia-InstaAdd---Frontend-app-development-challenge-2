@@ -1,0 +1,37 @@
+@if (title()) {
+  <h2 mat-dialog-title>
+    {{ title() }}
+    <button mat-icon-button class="close-button" mat-dialog-close>
+      <app-icon-close [clickable]="true"></app-icon-close>
+    </button>
+  </h2>
+}
+<mat-dialog-content>
+  <ng-content></ng-content>
+</mat-dialog-content>
+<mat-dialog-actions>
+  @for (button of buttons(); track $index) {
+    @if (button.variant === 'stroked') {
+      <button
+        [class.mx-auto]="buttons().length === 1"
+        [disabled]="button.disabled"
+        mat-stroked-button
+        [mat-dialog-close]="button.value"
+        [style.color]="button.color"
+        [style.background-color]="'transparent'"
+      >
+        {{ button.label }}
+      </button>
+    } @else {
+      <button
+        [class.mx-auto]="buttons().length === 1"
+        [disabled]="button.disabled"
+        mat-flat-button
+        [mat-dialog-close]="button.value"
+        [style.background-color]="button.color"
+      >
+        {{ button.label }}
+      </button>
+    }
+  }
+</mat-dialog-actions>

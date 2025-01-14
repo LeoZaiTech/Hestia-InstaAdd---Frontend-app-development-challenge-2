@@ -1,0 +1,55 @@
+<div class="title">Associated Product</div>
+<div class="content">
+  <div class="d-flex gap-16">
+    <div class="product-left-box">
+      <img class="product-img" [src]="product().imageUrl" alt="product image" />
+    </div>
+    <div class="product-name">
+      {{ product().description }}
+    </div>
+  </div>
+
+  <div class="d-flex gap-16">
+    <div class="product-left-box hide-window768"></div>
+    <div>
+      <div class="product-info-box d-flex flex-column gap-12">
+        <div class="d-flex align-items-center">
+          <div class="info-label">MPID</div>
+          <div class="info-value d-flex align-items-center flex-wrap">
+            {{ product().mpid }}
+            <button class="copy d-flex gap-4" (click)="copyText(product().mpid!)">
+              <app-icon-copy></app-icon-copy> Copy
+            </button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="info-label">Vendor</div>
+          <div class="info-value d-flex align-items-center">{{ product().vendor?.name }}</div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="info-label">Alt. 1 Code</div>
+          <div class="info-value d-flex align-items-center">{{ product().altCode }}</div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="info-label">UPC</div>
+          <div class="info-value d-flex align-items-center">{{ product().upc }}</div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="info-label">Product Code</div>
+          <div class="info-value d-flex align-items-center">
+            {{ product().productCode }}
+          </div>
+        </div>
+      </div>
+      <a
+        class="btn-open"
+        [href]="product().enterpriseSearchUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open in Enterprise Search
+        <app-icon-open></app-icon-open>
+      </a>
+    </div>
+  </div>
+</div>

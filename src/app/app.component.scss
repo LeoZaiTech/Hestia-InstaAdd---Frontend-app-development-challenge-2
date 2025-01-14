@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  height: 100%;
+
+  app-spinner {
+    margin-top: 30px;
+  }
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: var(--black-loading-background);
+}

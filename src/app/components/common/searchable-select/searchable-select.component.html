@@ -1,0 +1,69 @@
+<div class="label">{{ label() }}</div>
+<div class="input-box" [class.focus]="isFocus">
+  @if (!isFocus && !inputControl().value) {
+    <app-icon-search class="input-prefix-icon"></app-icon-search>
+  }
+
+  <input
+    #inputEl
+    type="text"
+    [formControl]="inputControl()"
+    [placeholder]="placeholder()"
+    [readonly]="isSearching()"
+    (focus)="isFocus = true"
+    (blur)="onInputBlur()"
+    (keydown)="onInputKeydown($event)"
+  />
+  @if (isFocus || inputControl().value) {
+    <app-icon-close-new
+      class="input-suffix-icon"
+      [color]="inputControl().value ? 'var(--grey)' : '#dcdddf'"
+      [clickable]="!!inputControl().value"
+      (mousedown)="$event.preventDefault(); inputControl().reset()"
+    ></app-icon-close-new>
+  }
+
+  <app-icon-select-arrow
+    class="input-suffix-icon clickable"
+    [class.select-arrow-top]="isFocus"
+    (mousedown)="$event.preventDefault(); isFocus ? inputEl.blur() : inputEl.focus()"
+  ></app-icon-select-arrow>
+
+  @if (isFocus) {
+    <div class="select-panel" [class.no-found]="filteredOptions.length === 0">
+      <div class="select-option-panel" #selectOptionPanel>
+        @for (option of filteredOptions; track option.data.id; let i = $index) {
+          <button
+            class="select-option"
+            [class.highlighted]="i === selectedOptionIndex"
+            (mousedown)="onSelect(option.data)"
+          >
+            @for (label of option.label; track label.index) {
+              @if (label.isHighlight) {
+                <strong>{{ label.text }}</strong>
+              } @else {
+                <span>{{ label.text }}</span>
+              }
+            }
+          </button>
+        } @empty {
+          <div>
+            <div class="not-found-title">Vendor not found</div>
+
+            <div class="not-found-description">
+              Please work with the appropriate team to ensure the vendor has been onboarded and
+              activated.
+            </div>
+
+            <div class="not-found-contact">
+              Or
+              <a href="mailto:support@example.com" (mousedown)="$event.preventDefault()"
+                >Contact Support</a
+              >
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

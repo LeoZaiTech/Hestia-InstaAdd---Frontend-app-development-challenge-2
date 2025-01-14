@@ -1,0 +1,16 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+:host {
+  @include ball(32px);
+  @include flex(center, center);
+  overflow: hidden;
+  font-size: 14px;
+  color: $white;
+  background-color: $thumbnail-background;
+
+  img {
+    @include box(100%);
+    display: block;
+  }
+}

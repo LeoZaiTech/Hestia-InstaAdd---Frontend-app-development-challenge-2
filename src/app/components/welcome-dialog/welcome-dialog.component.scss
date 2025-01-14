@@ -1,0 +1,84 @@
+@import 'app/styles/mixins';
+
+.dialog {
+  box-sizing: border-box;
+  padding: 20px 24px;
+  width: 580px;
+  background: var(--white);
+  border-radius: 6px;
+
+  @include window768 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 15px 16px 45px;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
+
+.dialog-content {
+  overflow: hidden auto;
+  margin: 16px 0 24px;
+  width: 100%;
+
+  ::ng-deep {
+    .mat-mdc-tab-group {
+      --mat-tab-header-divider-height: 0;
+      --mdc-tab-indicator-active-indicator-height: 0;
+
+      .mat-mdc-tab-labels {
+        display: none;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.checkbox {
+  ::ng-deep {
+    .mdc-checkbox {
+      margin-left: -11px;
+    }
+  }
+
+  .checkbox-text {
+    margin-left: -5px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--default);
+  }
+}
+
+.btn-dot {
+  width: 24px;
+  height: 4px;
+  font-size: 0;
+  background: var(--switch-off-background);
+  border-radius: 3px;
+
+  &.active {
+    background: var(--primary);
+  }
+}
+
+.btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  width: 110px;
+  height: 48px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--blue);
+  border-radius: 4px;
+}

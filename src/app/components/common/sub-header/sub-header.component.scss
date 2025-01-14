@@ -1,0 +1,54 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+:host {
+  @include flex(center, space-between);
+  @include padding(0 32px);
+  height: 56px;
+  background-color: $white;
+
+  @include window768 {
+    @include padding(0 24px);
+  }
+}
+
+.breadcrumbs {
+  @include flex(center);
+
+  a {
+    color: $primary-dark;
+
+    app-icon-home {
+      ::ng-deep {
+        path:not(.path-fill),
+        circle {
+          stroke: $primary-dark;
+        }
+
+        path.path-fill {
+          fill: $primary-dark;
+        }
+      }
+    }
+  }
+
+  app-icon-home {
+    margin-right: 8px;
+  }
+
+  li {
+    @include flex(center);
+  }
+
+  .breadcrumb-item {
+    color: $cool-grey;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 17px;
+  }
+
+  .breadcrumb-dots {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,318 @@
+<div class="material-container">
+  <div class="example-label">Basic use of button</div>
+  <div class="example-container">
+    <section>
+      <div class="example-label">Icon Button</div>
+      <div class="example-button-row">
+        <button mat-icon-button><mat-icon>home</mat-icon></button>
+        <button mat-icon-button disabled><mat-icon>home</mat-icon></button>
+        <a mat-icon-button href="https://www.google.com/" target="_blank"
+          ><mat-icon>home</mat-icon></a
+        >
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+      <div class="example-label">Flat</div>
+      <div class="example-button-row">
+        <button mat-flat-button>Basic</button>
+        <button mat-flat-button disabled>Disabled</button>
+        <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+        <button mat-flat-button><mat-icon>edit</mat-icon>With Icon</button>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+      <div class="example-label">Flat: Color = Warn</div>
+      <div class="example-button-row">
+        <button mat-flat-button color="warn">Basic</button>
+        <button mat-flat-button color="warn" disabled>Disabled</button>
+        <a mat-flat-button color="warn" href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+      <div class="example-label">Stroked</div>
+      <div class="example-button-row">
+        <button mat-stroked-button>Basic</button>
+        <button mat-stroked-button disabled>Disabled</button>
+        <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+      <div class="example-label">Stroked: Color = Warn</div>
+      <div class="example-button-row">
+        <button mat-stroked-button color="warn">Basic</button>
+        <button mat-stroked-button disabled color="warn">Disabled</button>
+        <a mat-stroked-button color="warn" href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div class="example-label">Basic use of tab</div>
+  <div class="example-container">
+    <mat-tab-group mat-stretch-tabs="false">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span>Tab 1</span>
+        </ng-template>
+
+        <div>Content 1</div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span>Tab 2</span>
+        </ng-template>
+
+        <div>Content 2</div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div class="example-label">Basic use of autocomplete</div>
+  <div class="example-container">
+    <mat-form-field class="example-full-width">
+      <input
+        #autocompleteInput
+        type="text"
+        placeholder="Pick one"
+        matInput
+        [matAutocomplete]="auto"
+        (input)="filter()"
+        (focus)="filter()"
+      />
+      <mat-autocomplete requireSelection #auto="matAutocomplete">
+        @for (option of filteredOptions; track option) {
+          <mat-option [value]="option">{{ option }}</mat-option>
+        } @empty {
+          <mat-option [disabled]="true"
+            >Please work with the appropriate team to ensure the vendor has been onboarded and
+            activated.</mat-option
+          >
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <div class="example-label">Basic use of table</div>
+  <div class="example-container">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">
+          <a href="javascript:">{{ element.position }}</a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef>Weight</th>
+        <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef>Symbol</th>
+        <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+  <div class="example-label">Basic use of slide</div>
+  <div class="example-container">
+    <p><mat-slide-toggle>Slide me!</mat-slide-toggle></p>
+    <p>
+      <mat-slide-toggle labelPosition="before" [checked]="true"
+        >...and slide me too!</mat-slide-toggle
+      >
+    </p>
+    <p><mat-slide-toggle labelPosition="before" disabled>disabled!</mat-slide-toggle></p>
+  </div>
+
+  <div class="example-label">Input</div>
+  <div class="example-container">
+    <form class="example-form">
+      <div>
+        <mat-form-field class="example-full-width" floatLabel="always" appearance="outline">
+          <input matInput placeholder="Ex. Pizza" value="Sushi" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" floatLabel="always" appearance="outline">
+          <input matInput placeholder="Ex. Pizza" value="Sushi" disabled />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" floatLabel="always" appearance="outline">
+          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" floatLabel="always" appearance="outline">
+          <textarea matInput placeholder="Ex. It makes me feel..." disabled></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <div class="example-label">Input: Warn</div>
+  <div class="example-container">
+    <form class="example-form">
+      <div>
+        <mat-form-field
+          class="example-full-width"
+          floatLabel="always"
+          appearance="outline"
+          color="warn"
+        >
+          <input matInput placeholder="Ex. Pizza" value="Sushi" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field
+          class="example-full-width"
+          floatLabel="always"
+          appearance="outline"
+          color="warn"
+        >
+          <input matInput placeholder="Ex. Pizza" value="Sushi" disabled />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field
+          class="example-full-width"
+          floatLabel="always"
+          appearance="outline"
+          color="warn"
+        >
+          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field
+          class="example-full-width"
+          floatLabel="always"
+          appearance="outline"
+          color="warn"
+        >
+          <textarea matInput placeholder="Ex. It makes me feel..." disabled></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <div class="example-label">Basic button-toggles</div>
+  <div class="example-container">
+    <mat-button-toggle-group name="fontStyle" value="bold">
+      <mat-button-toggle value="bold">Bold</mat-button-toggle>
+      <mat-button-toggle value="italic">Italic</mat-button-toggle>
+      <mat-button-toggle value="underline">Underline</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="example-label">Basic select</div>
+  <div class="example-container">
+    <mat-form-field floatLabel="always" appearance="outline">
+      <mat-select placeholder="Select" panelClass="app-mat-select-panel" [value]="1">
+        <mat-option [value]="0">All</mat-option>
+        <mat-option [value]="1">Pizza</mat-option>
+        <mat-option [value]="2">Tacos</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="example-label">Menu with icons</div>
+  <div class="example-container">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" hasBackdrop>
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div class="example-label">Basic list</div>
+  <div class="example-container">
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="example-label">Radio</div>
+  <div class="example-container">
+    <mat-radio-group aria-label="Select an option" value="2">
+      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="example-label">Accordion</div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Personal data </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput type="number" min="1" />
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel disabled>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Destination </mat-panel-title>
+        <mat-panel-description>
+          Type the country name
+          <mat-icon>map</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Day of the trip </mat-panel-title>
+        <mat-panel-description>
+          Inform the date you wish to travel
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      abc
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

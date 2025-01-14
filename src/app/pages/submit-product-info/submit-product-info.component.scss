@@ -1,0 +1,266 @@
+// Variables
+$primary-color: #1272BC;
+$secondary-color: #00446A;
+$text-color: #212529;
+$text-muted: #4E575F;
+$border-color: #AAB2B8;
+$success-color: #00A499;
+$white: #FFFFFF;
+$background-light: #F0F3F5;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  @include flex-column;
+  align-items: center;
+  padding: 108px 0 80px;
+  gap: 24px;
+  width: 100%;
+  min-height: 960px;
+  position: relative;
+
+  .hero-banner {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    top: 0;
+    background: url('/assets/images/hero-background.jpg') center/cover;
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: $secondary-color;
+      opacity: 0.45;
+    }
+
+    h1 {
+      position: absolute;
+      width: 100%;
+      top: 19.6%;
+      font-family: 'Proxima Nova';
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 115%;
+      text-align: center;
+      color: $white;
+    }
+  }
+
+  .main-box {
+    display: flex;
+    width: 800px;
+    background: $white;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+    z-index: 1;
+
+    .control {
+      @include flex-column;
+      padding: 32px;
+      gap: 32px;
+      width: 239px;
+
+      .steps {
+        @include flex-column;
+        gap: 3px;
+
+        .step {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          .icon {
+            @include flex-center;
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+            border: 1px solid $border-color;
+
+            &.active {
+              background: $secondary-color;
+            }
+          }
+
+          span {
+            font-family: 'Proxima Nova';
+            font-weight: 600;
+            font-size: 16px;
+            color: $text-muted;
+
+            &.active {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+
+      .subtitle {
+        h3 {
+          font-family: 'Proxima Nova';
+          font-weight: 600;
+          font-size: 20px;
+          color: $text-color;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-family: 'Proxima Nova';
+          font-size: 14px;
+          color: $text-muted;
+        }
+      }
+    }
+
+    .divider {
+      width: 1px;
+      background: #E1E5E9;
+    }
+
+    .content {
+      @include flex-column;
+      padding: 32px;
+      gap: 32px;
+      flex: 1;
+
+      form {
+        @include flex-column;
+        gap: 24px;
+      }
+
+      .form-field {
+        @include flex-column;
+        gap: 8px;
+
+        .label-group {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          .char-count {
+            margin-left: auto;
+            font-size: 14px;
+            color: $text-muted;
+          }
+        }
+
+        label {
+          font-family: 'Proxima Nova';
+          font-weight: 600;
+          font-size: 16px;
+          color: #0A2433;
+        }
+
+        .input-box {
+          display: flex;
+          align-items: center;
+          padding: 14px 16px;
+          gap: 16px;
+          background: $white;
+          border: 1px solid $border-color;
+          border-radius: 4px;
+
+          input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 14px;
+
+            &::placeholder {
+              color: #5D678B;
+            }
+          }
+        }
+
+        .status {
+          display: flex;
+          align-items: center;
+          padding: 10px 14px;
+          gap: 10px;
+          background: $background-light;
+          border-radius: 4px;
+
+          &.success {
+            .check-icon {
+              color: $success-color;
+            }
+          }
+        }
+      }
+
+      .double-field {
+        display: flex;
+        gap: 20px;
+
+        .form-field {
+          flex: 1;
+        }
+      }
+
+      .hazardous {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 2px 0;
+
+        input[type="checkbox"] {
+          width: 16px;
+          height: 16px;
+          border: 2px solid $border-color;
+          border-radius: 3px;
+        }
+
+        span {
+          font-family: 'Proxima Nova';
+          font-size: 16px;
+          color: #3C3C3E;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+
+        .btn-secondary {
+          padding: 0 32px;
+          height: 48px;
+          background: $white;
+          border: 1px solid $primary-color;
+          border-radius: 4px;
+          color: $primary-color;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        .btn-primary {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 0 24px;
+          height: 48px;
+          background: $primary-color;
+          border: none;
+          border-radius: 4px;
+          color: $white;
+          font-weight: 600;
+          text-transform: uppercase;
+
+          &:disabled {
+            background: #B1BACC;
+          }
+        }
+      }
+    }
+  }
+}

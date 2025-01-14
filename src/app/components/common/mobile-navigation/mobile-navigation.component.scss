@@ -1,0 +1,100 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+:host {
+  @include topLeft;
+  @include box(100%);
+  position: fixed;
+  display: block;
+  z-index: 10003;
+  background-color: rgba($black, 0.5);
+}
+
+// mobile navigation
+.ldm-mobile-navigation {
+  @include topRight;
+  @include rect(285px, 100%);
+  @include padding(35px 20px 20px);
+  @include flex(stretch, space-between, column);
+  position: absolute;
+  background-color: $primary-dark;
+}
+
+.ldm-logo {
+  width: 176px;
+  height: 23px;
+}
+
+// header
+.ldm-mobile-navigation-header {
+  @include flex(center, space-between);
+}
+
+// title section
+.ldm-mobile-navigation-title {
+  @include flex(center);
+
+  h1,
+  h3 {
+    font-size: 16px;
+    color: $white;
+  }
+
+  h1 {
+    font-weight: 600;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  app-divider {
+    margin: 0 15px;
+  }
+}
+
+// navigation list
+.ldm-mobile-navigation-list {
+  @include flex(stretch, null, column);
+  margin-top: 30px;
+}
+
+// navigation item
+.ldm-mobile-navigation-item {
+  @include clickable();
+  @include flex(center);
+  color: $rock-blue;
+
+  .ldm-icon {
+    margin-right: 15px;
+
+    ::ng-deep {
+      path,
+      circle {
+        stroke: $rock-blue;
+      }
+    }
+  }
+
+  &.active {
+    color: $white;
+
+    .ldm-icon {
+      ::ng-deep {
+        path,
+        circle {
+          stroke: $white;
+        }
+      }
+    }
+  }
+}
+
+.ldm-mobile-navigation-item + .ldm-mobile-navigation-item {
+  margin-top: 25px;
+}
+
+// bottom section
+.ldm-mobile-navigation-bottom {
+  @include flex(center, space-between);
+}

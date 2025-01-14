@@ -1,0 +1,43 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+:host {
+  @include flex(center);
+
+  &.show-all {
+    .ldm-user-info {
+      @include window768 {
+        display: flex;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+// user info
+.ldm-user-info {
+  @include flex(flex-start, null, column);
+  margin-left: 16px;
+
+  @include window768 {
+    display: none;
+    margin-left: 0;
+  }
+
+  * {
+    color: $white;
+  }
+}
+
+// name
+.ldm-user-name {
+  font-size: 14px;
+  line-height: 15px;
+}
+
+// role
+.ldm-user-role {
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba($color: $white, $alpha: 0.75) !important;
+}

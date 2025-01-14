@@ -1,0 +1,15 @@
+.hide {
+  display: none !important;
+}
+
+.hide-window768 {
+  @include window768 {
+    display: none !important;
+  }
+}
+
+.show-window768 {
+  @include window768 {
+    display: flex !important;
+  }
+}

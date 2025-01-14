@@ -1,0 +1,85 @@
+<div class="dialog">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <mat-checkbox
+        class="checkbox"
+        [checked]="true"
+        (change)="updateAlwaysShowWelcome($event.checked)"
+      >
+        <span class="checkbox-text">Always show this dialog at startup</span>
+      </mat-checkbox>
+    </div>
+    <app-icon-close-new [clickable]="true" (click)="close()"></app-icon-close-new>
+  </div>
+
+  <div class="dialog-content">
+    <mat-tab-group [(selectedIndex)]="tabSelectedIndex">
+      <mat-tab>
+        <div class="tab-content">
+          <img
+            class="hide-window768"
+            src="assets/images/welcome-banner-1.png"
+            alt="welcome banner 1"
+          />
+          <img
+            class="hide show-window768"
+            src="assets/images/welcome-banner-mobile-1.png"
+            alt="welcome banner 1"
+          />
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <div class="tab-content">
+          <img
+            class="hide-window768"
+            src="assets/images/welcome-banner-2.png"
+            alt="welcome banner 2"
+          />
+          <img
+            class="hide show-window768"
+            src="assets/images/welcome-banner-mobile-2.png"
+            alt="welcome banner 2"
+          />
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <div class="tab-content">
+          <img
+            class="hide-window768"
+            src="assets/images/welcome-banner-3.png"
+            alt="welcome banner 3"
+          />
+          <img
+            class="hide show-window768"
+            src="assets/images/welcome-banner-mobile-3.png"
+            alt="welcome banner 3"
+          />
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-4">
+      <button class="btn-dot" [class.active]="tabSelectedIndex >= 0" (click)="tabSelectedIndex = 0">
+        1
+      </button>
+      <button class="btn-dot" [class.active]="tabSelectedIndex >= 1" (click)="tabSelectedIndex = 1">
+        2
+      </button>
+      <button class="btn-dot" [class.active]="tabSelectedIndex >= 2" (click)="tabSelectedIndex = 2">
+        3
+      </button>
+    </div>
+    <button class="btn-next" (click)="next()">
+      @if (tabSelectedIndex === 2) {
+        FINISH
+      } @else {
+        NEXT
+        <app-icon-arrow-right></app-icon-arrow-right>
+      }
+    </button>
+  </div>
+</div>

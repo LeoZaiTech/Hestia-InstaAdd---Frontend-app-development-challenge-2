@@ -1,0 +1,17 @@
+:host {
+  &.clickable {
+    &:hover {
+      opacity: 1;
+      path {
+        stroke: var(--secondary-2);
+      }
+    }
+
+    &:active {
+      opacity: 1;
+      path {
+        stroke: var(--secondary-2);
+      }
+    }
+  }
+}

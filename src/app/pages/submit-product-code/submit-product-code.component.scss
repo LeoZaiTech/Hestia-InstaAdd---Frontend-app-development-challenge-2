@@ -1,0 +1,136 @@
+@import 'app/styles/mixins';
+
+:host {
+  min-height: 100%;
+}
+
+.container {
+  @include flex(center, flex-start, column);
+  min-height: calc(100% - 56px);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url('/assets/images/hero-banner.png');
+  background-size: contain;
+
+  @media screen and (max-width: 1366px) {
+    background-size: auto;
+  }
+
+  @include window768 {
+    padding: 0 16px;
+    background-image: url('/assets/images/hero-banner-mobile.png');
+    background-size: contain;
+  }
+
+  @media screen and (max-width: 375px) {
+    // background-size: auto;
+  }
+
+  .title {
+    padding: 52px 0 24px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 32px;
+    color: var(--white);
+
+    @media screen and (max-width: 500px) {
+      padding: 40px 0 22px;
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .submit-box {
+    box-sizing: border-box;
+    margin-bottom: 70px;
+    padding: 32px;
+    padding-bottom: 0;
+    width: 478px;
+    background: var(--white);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+
+    @include window768 {
+      margin-bottom: 50px;
+      width: 100%;
+      padding: 32px 24px;
+    }
+
+    .submit-box-title {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 18px;
+      color: var(--dark-grey);
+
+      @include window768 {
+        font-size: 16px;
+        line-height: 16px;
+      }
+    }
+
+    mat-tab-group {
+      margin-top: 20px;
+
+      ::ng-deep {
+        .mat-mdc-tab {
+          --mdc-secondary-navigation-tab-container-height: 37px;
+
+          @media screen and (max-width: 500px) {
+            --mdc-secondary-navigation-tab-container-height: 62px;
+          }
+        }
+      }
+
+      .tab-label {
+        display: flex;
+        align-items: center;
+
+        .tab-icon {
+          margin-right: 8px;
+          width: 22px;
+          height: 22px;
+        }
+
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+
+          .tab-icon {
+            margin-right: 0;
+            margin-bottom: 8px;
+          }
+        }
+      }
+
+      .tab-content {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin: 32px 2px;
+      }
+    }
+
+    .input-suffix-icon {
+      margin-right: 16px;
+    }
+
+    .btn-primary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      gap: 10px;
+      height: 48px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 14px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--blue);
+      border-radius: 4px;
+
+      &:disabled {
+        background: #b1bacc;
+      }
+    }
+  }
+}

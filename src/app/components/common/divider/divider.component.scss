@@ -1,0 +1,22 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+@mixin dividerColor($color) {
+  @include customAttribute('ldm-divider-color', $color) {
+    @content;
+  }
+}
+
+:host {
+  display: block;
+
+  // default
+  @include dividerColor('default') {
+    background-color: $border-default;
+  }
+
+  // transparent
+  @include dividerColor('transparent') {
+    background-color: $border-transparent;
+  }
+}

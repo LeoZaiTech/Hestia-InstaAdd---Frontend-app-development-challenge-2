@@ -1,0 +1,17 @@
+<app-dialog [buttons]="buttons()" [width]="data?.width || 300">
+  @if (data?.defaultDialog) {
+    <div>
+      <div>
+        <strong>{{ data?.title }}</strong>
+      </div>
+      <div>{{ data?.desc }}</div>
+    </div>
+  } @else {
+    <div>
+      <div>
+        <strong>{{ data?.title }}</strong>
+      </div>
+      <div>{{ data?.desc || 'Are you sure?' }}</div>
+    </div>
+  }
+</app-dialog>

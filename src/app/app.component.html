@@ -1,0 +1,13 @@
+<app-layout>
+  <!-- router -->
+  <router-outlet />
+</app-layout>
+
+@if (
+  ((isLoginCompleted | async) === false && (isAppInFailedState | async) === false) || isGettingUser
+) {
+  <div class="loading">
+    <!-- loading spinner (until user is signed in) -->
+    <app-spinner [align]="'center'" [size]="70" [borderWidth]="7" [periodSec]="1.3"></app-spinner>
+  </div>
+}

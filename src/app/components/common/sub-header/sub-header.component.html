@@ -1,0 +1,72 @@
+<div>
+  <ul class="breadcrumbs hide-window768">
+    @for (item of breadcrumbs(); track $index; let index = $index) {
+      @if (item.href) {
+        <li class="breadcrumb-item">
+          @if (breadcrumbs()[index].label === 'Home') {
+            <a href="javascript:" class="d-flex" (click)="onHomeClick()">
+              <app-icon-home></app-icon-home>
+              <span>{{ item.label }}</span>
+            </a>
+          } @else {
+            <a [routerLink]="[item.href]" class="d-flex">
+              {{ item.label }}
+            </a>
+          }
+        </li>
+        <li class="breadcrumb-separator">
+          <app-icon-breadcrumb-separator></app-icon-breadcrumb-separator>
+        </li>
+      } @else {
+        <li class="breadcrumb-item active">
+          @if (breadcrumbs()[index].label === 'Home') {
+            <app-icon-home></app-icon-home>
+          }
+          {{ item.label }}
+        </li>
+      }
+    }
+  </ul>
+
+  <ul class="breadcrumbs hide show-window768">
+    <li class="breadcrumb-item">
+      @if (breadcrumbs()[0].href) {
+        @if (breadcrumbs()[0].label === 'Home') {
+          <a href="javascript:" class="d-flex" (click)="onHomeClick()">
+            <app-icon-home></app-icon-home>
+            <span>{{ breadcrumbs()[0].label }}</span>
+          </a>
+        } @else {
+          <a [routerLink]="[breadcrumbs()[0].href]" class="d-flex">
+            {{ breadcrumbs()[0].label }}
+          </a>
+        }
+      } @else {
+        <div class="d-flex">
+          @if (breadcrumbs()[0].label === 'Home') {
+            <app-icon-home></app-icon-home>
+          }
+          {{ breadcrumbs()[0].label }}
+        </div>
+      }
+    </li>
+    @if (breadcrumbs().length > 1) {
+      <li class="breadcrumb-separator">
+        <app-icon-breadcrumb-separator></app-icon-breadcrumb-separator>
+      </li>
+      @if (breadcrumbs().length > 2) {
+        <li class="breadcrumb-dots" role="presentation">...</li>
+        <li class="breadcrumb-separator">
+          <app-icon-breadcrumb-separator></app-icon-breadcrumb-separator>
+        </li>
+      }
+      <li class="breadcrumb-item active">
+        {{ breadcrumbs()[breadcrumbs().length - 1].label }}
+      </li>
+    }
+  </ul>
+</div>
+
+<div>
+  <app-icon-product [clickable]="true"></app-icon-product>
+</div>

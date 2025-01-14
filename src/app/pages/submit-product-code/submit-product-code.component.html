@@ -1,0 +1,201 @@
+<app-sub-header [breadcrumbs]="breadcrumbs"></app-sub-header>
+
+<div class="container">
+  <h2 class="title">Submit a Product Request</h2>
+
+  <div class="submit-box">
+    <div class="d-flex align-items-center justify-content-between">
+      <h3 class="submit-box-title">Which code would you like to submit?</h3>
+      <app-icon-tip
+        class="hide-window768"
+        [clickable]="true"
+        appTooltip
+        [positions]="tooltipPositions"
+        [htmlContent]="tooltipHtmlContent"
+        contentClass="tooltip-product-code"
+      ></app-icon-tip>
+      <app-icon-tip
+        class="hide show-window768"
+        [clickable]="true"
+        appTooltip
+        [positions]="tooltipPositionsMobile"
+        [htmlContent]="tooltipHtmlContent"
+        contentClass="tooltip-product-code"
+      ></app-icon-tip>
+    </div>
+
+    <mat-tab-group fitInkBarToContent dynamicHeight [(selectedIndex)]="tabSelectedIndex">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div class="tab-label">
+            <app-icon-alt-code
+              class="tab-icon"
+              [color]="tabSelectedIndex === 0 ? 'var(--primary-dark)' : 'var(--secondary-1)'"
+            ></app-icon-alt-code>
+            <span>Alt. Code</span>
+          </div>
+        </ng-template>
+
+        <div class="tab-content">
+          <app-searchable-input
+            [inputControl]="altCodeFormControl"
+            [label]="'Enter an Alt. Code'"
+            [isLoading]="isAltCodeSearching"
+            [checkingText]="checkingText"
+            [resultType]="altCodeResultType"
+            [correctText]="correctText"
+            [wrongText]="wrongText"
+            (eventEnter)="searchProductByAltCode()"
+          >
+          </app-searchable-input>
+
+          @if (!isAltCodeSearching && !altCodeResultType) {
+            <button
+              class="btn-primary"
+              [disabled]="!altCodeFormControl.value"
+              (click)="searchProductByAltCode()"
+            >
+              <app-icon-search color="white"></app-icon-search>
+              Search
+            </button>
+          }
+
+          @if (!isAltCodeSearching && altCodeResultType === 'correct') {
+            <button class="btn-primary" [disabled]="!altCodeFormControl.value" (click)="next()">
+              Next step
+              <app-icon-arrow-right></app-icon-arrow-right>
+            </button>
+          }
+
+          @if (!isAltCodeSearching && altCodeResultType === 'wrong') {
+            <app-associated-product [product]="altCodeExistingProduct!"></app-associated-product>
+          }
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div class="tab-label">
+            <app-icon-mpnr
+              class="tab-icon"
+              [color]="tabSelectedIndex === 1 ? 'var(--primary-dark)' : 'var(--secondary-1)'"
+            ></app-icon-mpnr>
+            <span>Mfr. Part Number</span>
+          </div>
+        </ng-template>
+
+        <div class="tab-content">
+          <app-searchable-select
+            [inputControl]="mpnVendorFormControl"
+            [label]="'Find Vendor'"
+            [options]="vendors"
+            [isSearching]="isMPNSearching"
+            (selected)="selectVendor('mpn', $event)"
+            (inputBlur)="onVendorInputBlur('mpn')"
+          ></app-searchable-select>
+
+          <app-searchable-input
+            [inputControl]="mpnFormControl"
+            [label]="'Enter Mfr. Part Number'"
+            [isLoading]="isMPNSearching"
+            [checkingText]="checkingText"
+            [resultType]="mpnResultType"
+            [correctText]="correctText"
+            [wrongText]="wrongText"
+            (eventEnter)="searchProductByMPN()"
+          >
+          </app-searchable-input>
+
+          @if (!isMPNSearching && !mpnResultType) {
+            <button
+              class="btn-primary"
+              [disabled]="!mpnFormControl.value || !selectedMPNVendorId"
+              (click)="searchProductByMPN()"
+            >
+              <app-icon-search color="white"></app-icon-search>
+              Search
+            </button>
+          }
+
+          @if (!isMPNSearching && mpnResultType === 'correct') {
+            <button
+              class="btn-primary"
+              [disabled]="!mpnFormControl.value || !selectedMPNVendorId"
+              (click)="next()"
+            >
+              Next step
+              <app-icon-arrow-right></app-icon-arrow-right>
+            </button>
+          }
+
+          @if (!isMPNSearching && mpnResultType === 'wrong') {
+            <app-associated-product [product]="mpnExistingProduct!"></app-associated-product>
+          }
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div class="tab-label">
+            <app-icon-upc
+              class="tab-icon"
+              [color]="tabSelectedIndex === 2 ? 'var(--primary-dark)' : 'var(--secondary-1)'"
+            ></app-icon-upc>
+            <span>UPC</span>
+          </div>
+        </ng-template>
+
+        <div class="tab-content">
+          <app-searchable-select
+            [inputControl]="upcVendorFormControl"
+            [label]="'Find Vendor'"
+            [options]="vendors"
+            [isSearching]="isUPCSearching"
+            (selected)="selectVendor('upc', $event)"
+            (inputBlur)="onVendorInputBlur('upc')"
+          ></app-searchable-select>
+
+          <app-searchable-input
+            [inputControl]="upcFormControl"
+            [label]="'Enter an UPC'"
+            [inputType]="'number'"
+            [isLoading]="isUPCSearching"
+            [checkingText]="checkingText"
+            [resultType]="upcResultType"
+            [correctText]="correctText"
+            [wrongText]="wrongText"
+            (eventEnter)="searchProductByUPC()"
+          >
+            <app-icon-scan class="input-suffix-icon" suffix-icon></app-icon-scan>
+          </app-searchable-input>
+
+          @if (!isUPCSearching && !upcResultType) {
+            <button
+              class="btn-primary"
+              [disabled]="!upcFormControl.value || !selectedUPCVendorId"
+              (click)="searchProductByUPC()"
+            >
+              <app-icon-search color="white"></app-icon-search>
+              Search
+            </button>
+          }
+
+          @if (!isUPCSearching && upcResultType === 'correct') {
+            <button
+              class="btn-primary"
+              [disabled]="!upcFormControl.value || !selectedUPCVendorId"
+              (click)="next()"
+            >
+              Next step
+              <app-icon-arrow-right></app-icon-arrow-right>
+            </button>
+          }
+
+          @if (!isUPCSearching && upcResultType === 'wrong') {
+            <app-associated-product [product]="upcExistingProduct!"></app-associated-product>
+          }
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

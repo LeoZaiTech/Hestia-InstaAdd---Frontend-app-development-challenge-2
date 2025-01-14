@@ -1,0 +1,31 @@
+<div class="d-flex align-items-center full-width">
+  <!-- left content -->
+  <div class="ldm-simple-flex center left">
+    <!-- sub title -->
+    <h3 class="d-flex align-items-center gap-18">
+      <img class="ldm-logo" src="assets/images/logo.svg" alt="logo" />
+      <span class="ldm-title">Insta<span class="font-normal">Add</span></span>
+    </h3>
+  </div>
+
+  <!-- right content -->
+  <div class="ldm-simple-flex center right">
+    <!-- user info -->
+    <app-user-info [user]="appService.user$ | async"></app-user-info>
+
+    <!-- divider -->
+    <app-divider color="transparent" height="28" width="1"></app-divider>
+
+    <!-- logout -->
+    <app-icon-logout
+      (click)="logout()"
+      [clickable]="true"
+      width="17.4"
+      height="17.4"
+      color="white"
+    ></app-icon-logout>
+
+    <!-- menu -->
+    <app-icon-menu (click)="mainService.mobileMenuOpened = true" [clickable]="true"></app-icon-menu>
+  </div>
+</div>

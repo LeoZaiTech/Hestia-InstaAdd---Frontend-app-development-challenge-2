@@ -1,0 +1,87 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+:host {
+  @include flex(center, space-between);
+  @include padding(0 32px);
+  background-color: $primary-dark;
+  height: 80px;
+  flex-wrap: nowrap;
+
+  @include window768 {
+    align-items: flex-end;
+    padding: 0 24px 12.5px;
+    height: 70px;
+  }
+}
+
+// title common
+h1,
+h3 {
+  color: $white;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+// main title
+h1 {
+  font-weight: 600;
+}
+
+.ldm-logo {
+  width: 141px;
+  height: auto;
+  margin-bottom: -2px;
+
+  @include window768 {
+    width: 105px;
+  }
+}
+
+// sub title
+h3 {
+  font-weight: 600;
+
+  span {
+    color: inherit;
+  }
+}
+
+.ldm-simple-flex {
+  &.left {
+    // divider in left
+    app-divider {
+      margin: 0 9px;
+    }
+  }
+
+  &.right {
+    margin-left: auto;
+
+    // divider in right
+    app-divider {
+      margin: 0 15.8px 0 17.5px;
+    }
+
+    // hide divider / icon
+    app-divider,
+    app-icon-logout {
+      @include window768 {
+        display: none;
+      }
+    }
+  }
+
+  app-icon-menu {
+    display: none;
+
+    @include window768 {
+      display: flex;
+      margin-left: 20px;
+    }
+
+    @media screen and (max-width: 400px) {
+      margin-left: 16px;
+    }
+  }
+}

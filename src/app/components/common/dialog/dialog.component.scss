@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+
+  position: relative;
+  margin: auto;
+}
+
+.mat-mdc-dialog-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 19px !important;
+  color: var(--default) !important;
+  margin-bottom: 0 !important;
+
+  &::before {
+    display: none;
+  }
+}
+
+.mat-mdc-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+}
+
+.mat-mdc-dialog-actions {
+  padding: 0;
+  min-height: 0;
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -8px;
+}

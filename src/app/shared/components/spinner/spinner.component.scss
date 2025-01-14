@@ -1,0 +1,58 @@
+@import 'app/styles/mixins';
+@import 'app/styles/props';
+
+@mixin align($align) {
+  @include customAttribute('ts-align', $align) {
+    @content;
+  }
+}
+
+@mixin color($color) {
+  @include customAttribute('ts-color', $color) {
+    @content;
+  }
+}
+
+$spinner-border-style: solid;
+$spinner-border-color: transparent;
+$spinner-border-top-color: $primary;
+
+:host {
+  @include align('center') {
+    @include flex(center, center);
+  }
+
+  @include align('left') {
+    @include flex(center, flex-start);
+  }
+
+  @include align('right') {
+    @include flex(center, flex-end);
+  }
+
+  @include color('white') {
+    .ts-spinner {
+      border-top-color: $white;
+    }
+  }
+}
+
+// spinner
+.ts-spinner {
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-style: $spinner-border-style;
+  border-color: $spinner-border-color;
+  border-top-color: $spinner-border-top-color;
+  animation: spin cubic-bezier(0.46, 0.15, 0.62, 0.87) 0.7s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "altCode": "W5023986744",
+    "description": "KOHLER Tempered™ Two Handle Widespread Bathroom Sink Faucet in Vibrant® Brushed Moderne Brass",
+    "enterpriseSearchUrl": "http://localhost:8080/static/images/product-image.png",
+    "imageUrl": "http://localhost:8080/static/images/product-image.png",
+    "mpid": "9273989",
+    "productCode": "AK-1723091983-DRP",
+    "upc": "172300091983",
+    "vendor": {
+      "id": "7",
+      "name": "WABCO (3352)"
+    }
+  },
+  {
+    "altCode": "W6023986777",
+    "description": "KOHLER Tempered™ Two Handle Widespread Bathroom Sink Faucet in Vibrant® Brushed Moderne Brass",
+    "enterpriseSearchUrl": "http://localhost:8080/static/images/product-image.png",
+    "imageUrl": "http://localhost:8080/static/images/product-image.png",
+    "mpid": "9273990",
+    "productCode": "DRP-3317091983-AK",
+    "upc": "121702091987",
+    "vendor": {
+      "id": "5",
+      "name": "KOHLER CO"
+    }
+  }
+]

@@ -1,0 +1,15 @@
+@import 'app/styles/common';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: $default;
+
+  * {
+    font-family: 'proxima-nova', 'Arial', sans-serif;
+  }
+}

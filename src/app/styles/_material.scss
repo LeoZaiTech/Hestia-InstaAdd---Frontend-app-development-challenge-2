@@ -1,0 +1,287 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+      use-system-variables: true,
+    ),
+    typography: (
+      plain-family: 'proxima-nova',
+      brand-family: 'proxima-nova',
+      bold-weight: 700,
+      medium-weight: 500,
+      regular-weight: 400,
+      use-system-variables: true,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($light-theme);
+  @include mat.system-level-colors($light-theme);
+  @include mat.system-level-typography($light-theme);
+
+  // Comment out the line below if you want to use the pre-defined typography utility classes.
+  // For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+  // @include mat.typography-hierarchy($light-theme);
+
+  // Comment out the line below if you want to use the deprecated `color` inputs.
+  @include mat.color-variants-backwards-compatibility($light-theme);
+
+  --sys-background: #f4f7fa;
+  --sys-on-background: #333333;
+  --sys-surface: #ffffff;
+  --sys-surface-dim: #d8dae0;
+  --sys-surface-bright: #f4f7fa;
+  --sys-surface-container-lowest: #ffffff;
+  --sys-surface-container-low: #f1f3f9;
+  --sys-surface-container: #ffffff;
+  --sys-surface-container-high: #fff;
+  --sys-surface-container-highest: #e0e2e8;
+  --sys-on-surface: #333333;
+  --sys-surface-variant: #ffffff;
+  --sys-on-surface-variant: #8693ad;
+  --sys-inverse-surface: #2d3135;
+  --sys-inverse-on-surface: #eff1f6;
+  --sys-outline: #e8e8e8;
+  --sys-outline-variant: #c2c7ce;
+  --sys-shadow: #000000;
+  --sys-scrim: #000000;
+  --sys-surface-tint: #1c88c8;
+  --sys-primary: #1c88c8;
+  --sys-on-primary: #ffffff;
+  --sys-primary-container: #6db5d2;
+  --sys-on-primary-container: #f7f7f7;
+  --sys-inverse-primary: #98ccf9;
+  --sys-secondary: #126682;
+  --sys-on-secondary: #ffffff;
+  --sys-secondary-container: #1c88c8;
+  --sys-on-secondary-container: #fff;
+  --sys-tertiary: #00446a;
+  --sys-on-tertiary: #ffffff;
+  --sys-tertiary-container: #cde5ff;
+  --sys-on-tertiary-container: #084b72;
+  --sys-error: #9d162e;
+  --sys-on-error: #ffffff;
+  --sys-error-container: #ffdada;
+  --sys-on-error-container: #733337;
+  --sys-neutral: #77787b;
+  --sys-neutral-variant: #72787f;
+  --sys-primary-fixed: #cce5ff;
+  --sys-primary-fixed-dim: #98ccf9;
+  --sys-on-primary-fixed: #ffffff;
+  --sys-on-primary-fixed-variant: #ffffff;
+  --sys-secondary-fixed: #bee9ff;
+  --sys-secondary-fixed-dim: #8bd0f0;
+  --sys-on-secondary-fixed: #ffffff;
+  --sys-on-secondary-fixed-variant: #ffffff;
+  --sys-tertiary-fixed: #cde5ff;
+  --sys-tertiary-fixed-dim: #99ccfa;
+  --sys-on-tertiary-fixed: #ffffff;
+  --sys-on-tertiary-fixed-variant: #fff;
+  --sys-inverse-secondary: #8bd0f0;
+  --sys-inverse-tertiary: #99ccfa;
+  --sys-inverse-error: #ffb3b4;
+  --sys-error-fixed: #ffdada;
+  --sys-error-fixed-dim: #ffb3b4;
+  --sys-on-error-fixed: #3b080e;
+  --sys-on-error-fixed-variant: #733337;
+
+  --default-radius: 4px;
+
+  .mdc-button {
+    --mdc-outlined-button-container-shape: var(--default-radius);
+    --mdc-filled-button-container-shape: var(--default-radius);
+    --mdc-text-button-container-shape: var(--default-radius);
+    --mdc-protected-button-container-shape: var(--default-radius);
+    --mat-standard-button-toggle-shape: var(--default-radius);
+  }
+
+  .mat-mdc-table {
+    --mat-table-background-color: var(--sys-surface);
+    --mat-table-header-headline-color: var(--primary-dim);
+    --mat-table-row-item-label-text-color: var(--sys-on-surface);
+    --mat-table-row-item-outline-color: var(--border-default);
+    --mat-table-header-headline-font: var(--sys-title-small-font);
+    --mat-table-header-headline-line-height: var(--sys-title-small-line-height);
+    --mat-table-header-headline-size: 13px;
+    --mat-table-header-headline-weight: 600;
+    --mat-table-header-headline-tracking: var(--sys-title-small-tracking);
+    --mat-table-row-item-label-text-font: var(--sys-body-medium-font);
+    --mat-table-row-item-label-text-line-height: var(--sys-body-medium-line-height);
+    --mat-table-row-item-label-text-size: 13px;
+    --mat-table-row-item-label-text-weight: var(--sys-body-medium-weight);
+    --mat-table-row-item-label-text-tracking: var(--sys-body-medium-tracking);
+    --mat-table-footer-supporting-text-font: var(--sys-body-medium-font);
+    --mat-table-footer-supporting-text-line-height: var(--sys-body-medium-line-height);
+    --mat-table-footer-supporting-text-size: var(--sys-body-medium-size);
+    --mat-table-footer-supporting-text-weight: var(--sys-body-medium-weight);
+    --mat-table-footer-supporting-text-tracking: var(--sys-body-medium-tracking);
+    --mat-table-header-container-height: 32px;
+    --mat-table-footer-container-height: 52px;
+    --mat-table-row-item-container-height: 52px;
+    --mat-table-row-item-outline-width: 1px;
+
+    border-bottom: 1px solid var(--border-default);
+
+    .mat-mdc-header-cell {
+      border-bottom-width: 0;
+      background: var(--table-header);
+    }
+  }
+
+  .mdc-switch {
+    --mdc-switch-selected-focus-state-layer-opacity: 0.12;
+    --mdc-switch-selected-hover-state-layer-opacity: 1;
+    --mdc-switch-selected-pressed-state-layer-opacity: 0.12;
+    --mdc-switch-unselected-focus-state-layer-opacity: 0.12;
+    --mdc-switch-unselected-hover-state-layer-opacity: 1;
+    --mdc-switch-unselected-pressed-state-layer-opacity: 0.12;
+    --mdc-switch-selected-focus-state-layer-color: var(--sys-primary);
+    --mdc-switch-selected-handle-color: var(--sys-on-primary);
+    --mdc-switch-selected-hover-state-layer-color: var(--sys-primary);
+    --mdc-switch-selected-pressed-state-layer-color: var(--sys-primary);
+    --mdc-switch-selected-focus-handle-color: var(--white);
+    --mdc-switch-selected-hover-handle-color: var(--white);
+    --mdc-switch-selected-pressed-handle-color: var(--white);
+    --mdc-switch-selected-focus-track-color: var(--sys-primary);
+    --mdc-switch-selected-hover-track-color: var(--sys-primary);
+    --mdc-switch-selected-pressed-track-color: var(--sys-primary);
+    --mdc-switch-selected-track-color: var(--sys-primary);
+    --mdc-switch-disabled-selected-handle-color: var(--sys-surface);
+    --mdc-switch-disabled-selected-icon-color: var(--sys-on-surface);
+    --mdc-switch-disabled-selected-track-color: var(--sys-on-surface);
+    --mdc-switch-disabled-unselected-handle-color: var(--sys-on-surface);
+    --mdc-switch-disabled-unselected-icon-color: var(--sys-surface-variant);
+    --mdc-switch-disabled-unselected-track-color: var(--switch-off-background);
+    --mdc-switch-selected-icon-color: var(--sys-on-primary-container);
+    --mdc-switch-unselected-focus-handle-color: var(--white);
+    --mdc-switch-unselected-focus-state-layer-color: var(--sys-on-surface);
+    --mdc-switch-unselected-focus-track-color: var(--switch-off-background);
+    --mdc-switch-unselected-handle-color: var(--white);
+    --mdc-switch-unselected-hover-handle-color: var(--white);
+    --mdc-switch-unselected-hover-state-layer-color: var(--sys-on-surface);
+    --mdc-switch-unselected-hover-track-color: var(--switch-off-background);
+    --mdc-switch-unselected-icon-color: var(--sys-surface-variant);
+    --mdc-switch-unselected-pressed-handle-color: var(--white);
+    --mdc-switch-unselected-pressed-state-layer-color: var(--sys-on-surface);
+    --mdc-switch-unselected-pressed-track-color: var(--switch-off-background);
+    --mdc-switch-unselected-track-color: var(--switch-off-background);
+    --mdc-switch-disabled-selected-icon-opacity: 0.38;
+    --mdc-switch-disabled-track-opacity: 0.12;
+    --mdc-switch-disabled-unselected-icon-opacity: 0.38;
+    --mdc-switch-handle-shape: 9999px;
+    --mdc-switch-selected-icon-size: 16px;
+    --mdc-switch-track-height: 32px;
+    --mdc-switch-track-shape: 9999px;
+    --mdc-switch-track-width: 52px;
+    --mdc-switch-unselected-icon-size: 16px;
+    --mdc-switch-state-layer-size: 40px;
+
+    .mdc-switch__icons {
+      display: none;
+    }
+
+    .mdc-switch__track::before {
+      border-width: 0;
+    }
+    &.mdc-switch--disabled .mdc-switch__track::before {
+      border-width: var(--mat-switch-track-outline-width);
+    }
+  }
+
+  .mat-mdc-list {
+    .mat-mdc-list-item {
+      border-bottom: 1px solid var(--border-default);
+    }
+  }
+
+  .mat-accent.mat-mdc-radio-button {
+    --mdc-radio-selected-focus-icon-color: var(--sys-primary);
+    --mdc-radio-selected-hover-icon-color: var(--sys-primary);
+    --mdc-radio-selected-icon-color: var(--sys-primary);
+    --mdc-radio-selected-pressed-icon-color: var(--sys-primary);
+    --mat-radio-checked-ripple-color: var(--sys-primary);
+  }
+
+  .mat-accent.mat-mdc-checkbox {
+    --mdc-checkbox-selected-focus-icon-color: var(--sys-primary);
+    --mdc-checkbox-selected-hover-icon-color: var(--sys-primary);
+    --mdc-checkbox-selected-icon-color: var(--sys-primary);
+    --mdc-checkbox-unselected-focus-icon-color: var(--sys-on-surface-variant);
+    --mdc-checkbox-unselected-hover-icon-color: var(--sys-on-surface-variant);
+  }
+
+  .mat-expansion-panel {
+    --mat-expansion-container-shape: var(--default-radius);
+
+    box-shadow: none !important;
+  }
+
+  .mat-mdc-select-panel {
+    --mat-select-container-elevation-shadow: 0 1px 15px #00000026;
+  }
+
+  .mat-divider {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .mdc-snackbar {
+    --mdc-snackbar-container-color: var(--white);
+    --mdc-snackbar-supporting-text-color: var(--default);
+    --mat-snack-bar-button-color: var(--sys-primary);
+
+    margin-top: 60px;
+
+    .mat-mdc-snackbar-surface {
+      box-shadow: 0 1px 15px #00000026;
+    }
+  }
+
+  .mdc-dialog {
+    --mdc-dialog-container-shape: var(--default-radius);
+  }
+
+  .mat-mdc-tab-group {
+    --mat-tab-header-divider-height: 1px;
+    --mat-tab-header-divider-color: var(--outline);
+    --mdc-tab-indicator-active-indicator-height: 2px;
+
+    .mat-mdc-tab {
+      --mat-tab-header-active-ripple-color: transparent;
+      --mat-tab-header-inactive-focus-label-text-color: var(--secondary-1);
+      --mat-tab-header-inactive-hover-label-text-color: var(--secondary-1);
+      --mat-tab-header-active-focus-label-text-color: var(--secondary-2);
+      --mat-tab-header-active-hover-label-text-color: var(--secondary-2);
+      --mat-tab-header-inactive-label-text-color: var(--secondary-1);
+      --mat-tab-header-active-label-text-color: var(--secondary-2);
+      --mat-tab-header-label-text-weight: 600;
+      --mat-tab-header-label-text-size: 14px;
+      --mdc-tab-indicator-active-indicator-color: var(--primary-dark);
+      --mat-tab-header-active-focus-indicator-color: var(--primary-dark);
+      --mat-tab-header-active-hover-indicator-color: var(--primary-dark);
+
+      min-width: auto;
+      padding: 0 15px;
+    }
+  }
+}

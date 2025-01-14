@@ -1,0 +1,12 @@
+@import 'app/styles/mixins';
+
+.ldm-home-content {
+  position: relative;
+  @include padding(24px 35px);
+
+  @include window768 {
+    @include padding(24px 16px);
+  }
+
+  font-size: 24px;
+}
