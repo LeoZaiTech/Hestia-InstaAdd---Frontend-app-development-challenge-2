@@ -136,7 +136,7 @@
           </div>
           <div class="dropdown-menu" *ngIf="showLineBuyDropdown">
             <div class="recommended-section">
-              <div class="section-header">RECOMMENDED</div>
+              <div class="section-header recommended">RECOMMENDED</div>
               <div class="option" *ngFor="let item of recommendedLineBuys" (click)="selectLineBuy(item)">
                 <span>{{item.name}}</span>
                 <div class="stars">
@@ -147,7 +147,7 @@
               </div>
             </div>
             <div class="default-section">
-              <div class="section-header">DEFAULT</div>
+              <div class="section-header default">DEFAULT</div>
               <div class="option" (click)="selectLineBuy(defaultLineBuy)">
                 <span>{{defaultLineBuy.name}}</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
